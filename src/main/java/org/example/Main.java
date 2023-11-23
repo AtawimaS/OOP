@@ -31,7 +31,7 @@ class Student {
         MataPelajaranList.add(mataPelajaran);
     }
 
-    public void View(String namaFile){
+    public void View(String namaFile) {
         Student siswaRead = Student.fromJson(namaFile);
         if (siswaRead != null) {
             System.out.println("ID      : " + siswaRead.id);
@@ -53,6 +53,7 @@ class Student {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         return gson.toJson(this);
     }
+
     public static Student fromJson(String namaFILE) {
         Gson gson = new Gson();
         try (Reader reader = new FileReader(namaFILE)) {
@@ -64,7 +65,7 @@ class Student {
     }
 }
 
-class Kelas{
+class Kelas {
     String namaKelas;
     String walikelas;
 
@@ -76,7 +77,7 @@ class Kelas{
     }
 }
 
-class MataPelajaran extends Student{
+class MataPelajaran extends Student {
     String namaPelajaran;
     String namaGuru;
 
@@ -114,12 +115,12 @@ public class Main {
                     Kelas kelas = new Kelas();
                     kelas.inputKelas(input);
                     siswa.kelas = kelas;
-                    do{
+                    do {
                         MataPelajaran mataPelajaran = new MataPelajaran();
                         mataPelajaran.inputMataPelajaran(input);
                         siswa.tambahMataPelajaran(mataPelajaran);
                         System.out.print("Tambah mata pelajaran lagi? (1: Ya, 0: Tidak): ");
-                    }while(input.nextInt() == 1);
+                    } while (input.nextInt() == 1);
 
                     String siswaJson = siswa.toJson();
                     System.out.println(siswaJson);
@@ -152,17 +153,17 @@ public class Main {
                     siswa_edit.View(namaFile_edit);
                     System.out.println("Baris yang akan di update (0..5) : ");
                     int pilih_edit = input.nextInt();
-                    switch (pilih_edit){
+                    switch (pilih_edit) {
                         case 1:
                             System.out.print("Ganti nama dari " + siswa_edit.nama + " menjadi ");
                             siswa_edit.nama = input.next();
                             break;
                         case 2:
-                            System.out.print("Ganti gender dari "+ siswa_edit.gender + " menjadi ");
+                            System.out.print("Ganti gender dari " + siswa_edit.gender + " menjadi ");
                             siswa_edit.gender = input.next();
                             break;
                         case 3:
-                            System.out.print("Ganti umur dari "+ siswa_edit.umur + " menjadi ");
+                            System.out.print("Ganti umur dari " + siswa_edit.umur + " menjadi ");
                             siswa_edit.umur = input.nextInt();
                             break;
                         case 4:
