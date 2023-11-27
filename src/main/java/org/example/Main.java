@@ -18,6 +18,11 @@ class Head {
     }
 }
 
+class Data_guru{
+    String ID;
+    String nama;
+}
+
 class Student {
     String nama;
     String id;
